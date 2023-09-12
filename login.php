@@ -51,11 +51,13 @@ class User
             throw new Exception('Invalid prepare statement');
         }
 
+        
         $result = $statement->execute([':username' => $username]);
 
+        
         if (false === $result) {
             throw new Exception(implode(' ', $statement->errorInfo()));
-        }
+        
 
         $row = $statement->fetch(PDO::FETCH_ASSOC);
 
